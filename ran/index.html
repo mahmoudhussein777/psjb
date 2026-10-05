@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيبر الالماني | بلايستيشن بريميوم</title>
+    <title>Eng/ِAhmed Gamal 01152021223   تعدبل من سوفت 5.05-13.52</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+            background:
+                linear-gradient(90deg, rgba(0, 255, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255, 43, 214, 0.055) 1px, transparent 1px),
+                radial-gradient(circle at 20% 15%, rgba(0, 240, 255, 0.28), transparent 30%),
+                radial-gradient(circle at 82% 72%, rgba(255, 43, 214, 0.24), transparent 34%),
+                linear-gradient(135deg, #05070f 0%, #091323 42%, #140a24 100%);
+            background-size: 54px 54px, 54px 54px, auto, auto, auto;
+            color: #f7fbff;
+            font-family: Tahoma, Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            overflow-x: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            top: 0;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 8px);
+            mix-blend-mode: screen;
+            opacity: 0.48;
+        }
+
+        body::after {
+            bottom: 0;
+            height: 44%;
+            background:
+                linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.58)),
+                linear-gradient(115deg, transparent 0 45%, rgba(0, 255, 255, 0.18) 46%, transparent 47% 100%),
+                linear-gradient(65deg, transparent 0 45%, rgba(255, 43, 214, 0.16) 46%, transparent 47% 100%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: min(940px, 100%);
+            padding: clamp(24px, 5vw, 54px);
+            border: 1px solid rgba(80, 238, 255, 0.34);
+            background:
+                linear-gradient(135deg, rgba(7, 13, 28, 0.9), rgba(18, 9, 34, 0.86)),
+                linear-gradient(120deg, rgba(0, 255, 255, 0.12), rgba(255, 43, 214, 0.12));
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+                0 0 45px rgba(0, 240, 255, 0.24),
+                0 0 90px rgba(255, 43, 214, 0.14),
+                0 28px 80px rgba(0, 0, 0, 0.48);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+
+        .container::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 0 35%, rgba(255, 255, 255, 0.12) 50%, transparent 65% 100%);
+            transform: translateX(-120%);
+            animation: sweep 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sweep {
+            0%, 55% { transform: translateX(-120%); }
+            78%, 100% { transform: translateX(120%); }
+        }
+
+        header,
+        .status-bar,
+        footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 30px;
+            padding: 7px 14px;
+            border: 1px solid rgba(0, 240, 255, 0.38);
+            color: #91f8ff;
+            background: rgba(0, 240, 255, 0.08);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before,
+        .eyebrow::after {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: #2ffcff;
+            box-shadow: 0 0 18px #2ffcff;
+        }
+
+        .main-title {
+            margin: 24px 0 8px;
+            font-size: clamp(42px, 8vw, 86px);
+            line-height: 0.95;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            direction: ltr;
+            color: #ffffff;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.75),
+                0 0 26px rgba(0, 240, 255, 0.85),
+                4px 0 0 rgba(255, 43, 214, 0.75),
+                -4px 0 0 rgba(0, 255, 255, 0.7);
+        }
+
+        .main-title span {
+            display: block;
+        }
+
+        .main-title .accent {
+            color: #ffeb7a;
+            text-shadow: 0 0 10px rgba(255, 235, 122, 0.86), 0 0 28px rgba(255, 43, 214, 0.7);
+        }
+
+        .subtitle {
+            margin-top: 14px;
+            color: #dbe9ff;
+            font-size: clamp(17px, 2.3vw, 25px);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: none;
+        }
+
+        .tagline {
+            max-width: 690px;
+            margin: 16px auto 0;
+            color: #9fb4c8;
+            font-size: clamp(14px, 2vw, 18px);
+            line-height: 1.6;
+        }
+
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            margin: 24px 0 0;
+            padding: 10px 22px;
+            border: 1px solid rgba(255, 235, 122, 0.55);
+            background: linear-gradient(90deg, rgba(255, 235, 122, 0.16), rgba(255, 43, 214, 0.12), rgba(0, 240, 255, 0.14));
+            color: #fff8bd;
+            box-shadow: 0 0 28px rgba(255, 235, 122, 0.22);
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .separator {
+            position: relative;
+            z-index: 2;
+            width: min(680px, 86%);
+            height: 1px;
+            margin: 36px auto;
+            border: 0;
+            background: linear-gradient(90deg, transparent, #35f6ff, #ff2bd6, #ffeb7a, transparent);
+            box-shadow: 0 0 18px rgba(0, 240, 255, 0.6);
+        }
+
+        .status-bar {
+            width: min(720px, 100%);
+            min-height: 74px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 20px;
+            border: 1px solid rgba(0, 240, 255, 0.28);
+            background: rgba(3, 8, 19, 0.72);
+            box-shadow: 0 0 22px rgba(0, 240, 255, 0.14) inset, 0 0 24px rgba(255, 43, 214, 0.12);
+        }
+
+        .status-text {
+            color: #e9fbff;
+            font-size: clamp(15px, 2vw, 20px);
+            font-weight: 800;
+            letter-spacing: 1px;
+            line-height: 1.45;
+            text-transform: uppercase;
+        }
+
+        .status-text.loading {
+            color: #42f8ff;
+            text-shadow: 0 0 18px rgba(66, 248, 255, 0.86);
+        }
+
+        .status-text.error {
+            color: #ff6b9d;
+            text-shadow: 0 0 18px rgba(255, 43, 114, 0.72);
+        }
+
+        footer {
+            margin-top: 34px;
+            color: #8fa9bd;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: none;
+        }
+
+        footer .credit,
+        footer br,
+        footer span[style] {
+            display: none;
+        }
+
+        footer::before {
+            content: "سيبر الالماني - تجربة بلايستيشن بريميوم";
+            display: block;
+            color: #fff8bd;
+            font-weight: 900;
+            text-shadow: 0 0 14px rgba(255, 235, 122, 0.62);
+        }
+
+        footer::after {
+            content: "تحميل سريع، واجهة فاخرة، وتجهيز احترافي لكل جهاز";
+            display: block;
+            margin-top: 12px;
+            color: #7df7ff;
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: 0.5px;
+        }
+
+        .credit {
+            margin: 0;
+        }
+
+        .credit-link {
+            color: #fff8bd;
+            font-weight: 900;
+            text-shadow: 0 0 14px rgba(255, 235, 122, 0.62);
+        }
+
+        .location {
+            display: block;
+            margin-top: 12px;
+            color: #7df7ff;
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 620px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 28px 18px;
+            }
+
+            .eyebrow,
+            .version-badge,
+            footer {
+                letter-spacing: 1px;
+            }
+
+            .main-title {
+                font-size: clamp(38px, 15vw, 64px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="eyebrow">سيبر بلايستيشن</div>
+            <h1 class="main-title">
+                <span>الالماني</span>
+                <span class="accent">بريميوم</span>
+            </h1>
+            <div class="subtitle">أقوى تجربة PS4 GoldHEN داخل السيبر</div>
+            <p class="tagline">تشغيل سريع، شكل نيون فاخر، وتجهيز احترافي لجلسات البلايستيشن. كل جهاز ياخد المسار المناسب لإصداره تلقائيا.</p>
+            <div class="version-badge">يدعم إصدارات FW 5.05 - 13.52</div>
+        </header>
+
+        <hr class="separator">
+
+        <div class="status-bar">
+            <span id="msgs" class="status-text loading">⏳ Loading GoldHEN v2.4b18.12... Please Wait</span>
+        </div>
+
+        <script>
+            document.title = 'سيبر الالماني | بلايستيشن بريميوم';
+            document.getElementById('msgs').textContent = 'جاري تجهيز خدمة GoldHEN المميزة... برجاء الانتظار';
+        </script>
+
+        <footer>
+            <p class="credit">Designed by <a href="#" class="credit-link">Eng/ِAhmed Gamal 01152021223</a></p>
+			       <br>
+         <span style="color: ##FFFFFF; font-size: 20px;">العنوان/محافظة القاهرة/المرج شارع الورشة امام سنترال2 </span>
+        </footer>
+    </div>
+
+    <script>
+        var uaFull = navigator.userAgent;
+        var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
+        var isPS4 = match !== null;
+        var fwVersion = isPS4 ? match[1] : "Unknown";
+        var fwNum = parseFloat(fwVersion);
+
+        var msgs = document.getElementById('msgs');
+
+        function onScriptError() {
+            msgs.innerHTML = "المحتوى غير متاح حاليا - امسح بيانات المتصفح وثبت الكاش من جديد";
+            msgs.className = "status-text error";
+        }
+
+        if (!isPS4) {
+            document.addEventListener("DOMContentLoaded", () => {
+                msgs.innerHTML = "هذه الصفحة مخصصة لأجهزة PS4 بإصدارات 5.05 ومن 7.00 إلى 13.52";
+                msgs.className = "status-text error";
+            });
+        } else {
+            if (window.applicationCache.status == '0') {
+                if (fwNum == 5.05 || fwNum == 5.07) {
+                    msgs.innerHTML = "جاري تجهيز كاش سيبر الالماني لإصدار FW " + fwVersion + "...";
+                    setTimeout(function() { window.location.replace("cache505.html"); }, 500);
+                } else if (fwNum >= 7.00 && fwNum <= 8.52) {
+                    msgs.innerHTML = "جاري تجهيز كاش سيبر الالماني لإصدار FW " + fwVersion + "...";
+                    setTimeout(function() { window.location.replace("cache700.html"); }, 500);
+                } else if (fwNum >= 9.00 && fwNum <= 9.60) {
+                    msgs.innerHTML = "جاري تجهيز كاش سيبر الالماني لإصدار FW " + fwVersion + "...";
+                    setTimeout(function() { window.location.replace("cache900.html"); }, 500);
+                } else if (fwNum >= 10.00 && fwNum <= 11.02) {
+                    msgs.innerHTML = "جاري تجهيز كاش سيبر الالماني لإصدار FW " + fwVersion + "...";
+                    setTimeout(function() { window.location.replace("cachecss.html"); }, 500);
+                } else if (fwNum >= 11.50 && fwNum <= 13.52) {
+                    msgs.innerHTML = "جاري تجهيز كاش سيبر الالماني لإصدار FW " + fwVersion + "...";
+                    setTimeout(function() { window.location.replace("cacheslopkit.html"); }, 500);
+                } else {
+                    msgs.innerHTML = 'هذا الإصدار غير مدعوم حاليا: <span style="color: red;">' + fwVersion + '</span>';
+                    msgs.className = "status-text error";
+                }
+            } else {
+                if (fwNum == 5.05 || fwNum == 5.07) {
+                    msgs.innerHTML = "جاري تشغيل الخدمة المميزة لإصدار FW " + fwVersion + "...";
+                    var script = document.createElement('script');
+                    script.src = "505/exploit.js";
+                    script.onerror = onScriptError;
+                    document.head.appendChild(script);
+                }
+                else if (fwNum >= 7.00 && fwNum <= 8.52) {
+                    msgs.innerHTML = "جاري تشغيل الخدمة المميزة لإصدار FW " + fwVersion + "...";
+                    var script = document.createElement('script');
+                    script.type = 'module';
+                    script.src = "700/alert.js";
+                    script.onerror = onScriptError;
+                    document.head.appendChild(script);
+                }
+                else if (fwNum >= 9.00 && fwNum <= 9.60) {
+                    msgs.innerHTML = "جاري تشغيل الخدمة المميزة لإصدار FW " + fwVersion + "...";
+                    var script = document.createElement('script');
+                    script.type = 'module';
+                    script.src = "900/alert.js";
+                    script.onerror = onScriptError;
+                    document.head.appendChild(script);
+                }
+                else if (fwNum >= 10.00 && fwNum <= 11.02) {
+                    msgs.innerHTML = "جاري تشغيل الخدمة المميزة لإصدار FW " + fwVersion + "...";
+                    var script = document.createElement('script');
+                    script.src = "css/main.js";
+                    script.onerror = onScriptError;
+                    script.onload = function () {
+                        setTimeout(function () { doJb(); }, 500);
+                    };
+                    document.head.appendChild(script);
+                }
+                else if (fwNum >= 11.50 && fwNum <= 12.02) {
+                    msgs.innerHTML = "جاري تشغيل الخدمة المميزة لإصدار FW " + fwVersion + "...";
+                    var script = document.createElement('script');
+                    script.type = 'module';
+                    script.src = "slopkit/chain_lapse.js";
+                    script.onerror = onScriptError;
+                    document.head.appendChild(script);
+                }
+                else if (fwNum >= 12.50 && fwNum <= 13.00) {
+                    msgs.innerHTML = "جاري تشغيل الخدمة المميزة لإصدار FW " + fwVersion + "...";
+                    var script = document.createElement('script');
+                    script.type = 'module';
+                    script.src = "slopkit/chain_poops.js";
+                    script.onerror = onScriptError;
+                    document.head.appendChild(script);
+                }
+                else if (fwNum >= 13.02 && fwNum <= 13.52) {
+                    msgs.innerHTML = "جاري تشغيل الخدمة المميزة لإصدار FW " + fwVersion + "...";
+                    var script = document.createElement('script');
+                    script.type = 'module';
+                    script.src = "slopkit/jb.js?v=19";
+                    script.onerror = onScriptError;
+                    document.head.appendChild(script);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
